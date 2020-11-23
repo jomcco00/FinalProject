@@ -51,7 +51,7 @@ public class InitialIOTest {
         tester.addOutput("Then 2456000 L/s flows 400 km downstream.");
         tester.addOutput("Then, the Atbarah River flows into the river.");
         tester.addOutput("2830000 L/s flows 3000 km downstream.");
-        tester.addOutput("Then the Nile flows into the sea.");    
+        tester.addOutput("Then the Nile flows into the sea.");
         tester.run();
     }
 

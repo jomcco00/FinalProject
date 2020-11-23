@@ -6,7 +6,7 @@ import java.lang.*;
  *
  * @author Kyle Burke <paithanq@gmail.com>
  */
-public class MyRiverDiscoverer
+public class RiverDiscoverer
 {
 private Scanner input = new Scanner(System.in);
 private ArrayList<Integer> lengthsBetweenConvergences = new ArrayList<Integer>();
@@ -14,6 +14,7 @@ private ArrayList<String> convergenceNames = new ArrayList<String>();
 private ArrayList<Integer> riverFlows = new ArrayList<Integer>(); //amount of flow on the main branch at each part of the river.
 private String riverName = "";
 private String tributaryName = "";
+private int spillToSea = 1;
 
 public void mainRiverExplorer()
 {
@@ -26,15 +27,32 @@ public void mainRiverExplorer()
 
 public void addRiverFlow()
 {
-  while (true) {
-    System.out.println("How much water is flowing into the sea?  (L/s)");
-    try {
-      int flow = Integer.parseInt(input.nextLine());
-      riverFlows.add(flow);
-      break;
-    } catch (NumberFormatException e) {
-      System.out.println("I didn't understand that!");
-      //break;
+  if(spillToSea == 1)
+  {
+    while (true) {
+      System.out.println("How much water is flowing into the sea?  (L/s)");
+      try {
+          int flow = Integer.parseInt(input.nextLine());
+          riverFlows.add(flow);
+          break;
+      } catch (NumberFormatException e) {
+          System.out.println("I didn't understand that!");
+      }
+    }
+    spillToSea = 0;
+  }
+  else if(spillToSea == 0)
+  {
+    while (true) {
+        System.out.println("How much water is flowing from that tributary into the main river?  (L/s)");
+        try {
+          int flow = Integer.parseInt(input.nextLine());
+          int previousFlow = riverFlows.get(riverFlows.size() - 1);
+          riverFlows.add(previousFlow - flow);
+            break;
+        } catch (NumberFormatException e) {
+            System.out.println("I didn't understand that!");
+        }
     }
   }
   addRiverDistance();
@@ -103,7 +121,7 @@ public void displayOutput()
 
     public static void main(String[] args)
     {
-      MyRiverDiscoverer thing = new MyRiverDiscoverer();
+      RiverDiscoverer thing = new RiverDiscoverer();
       thing.mainRiverExplorer();
     }
 }
