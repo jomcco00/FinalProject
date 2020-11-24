@@ -49,7 +49,7 @@ public void addRiverFlow()
           int flow = Integer.parseInt(input.nextLine());
           int previousFlow = riverFlows.get(riverFlows.size() - 1);
           riverFlows.add(previousFlow - flow);
-            break;
+          break;
         } catch (NumberFormatException e) {
             System.out.println("I didn't understand that!");
         }
@@ -68,7 +68,6 @@ public void addRiverDistance()
       break;
     } catch (NumberFormatException e) {
       System.out.println("I didn't understand that!");
-      //break;
     }
   }
   addConfluence();
@@ -79,7 +78,6 @@ public void addConfluence()
     System.out.println("Are you done traveling upstream on the " + riverName + "? (y/N)");
     if (input.nextLine().equals("y")) {
       System.out.println("Great!  We're done!");
-
       displayOutput();
     }
     else

@@ -1,2 +1,19 @@
 Joshua McCormack
 Final Exam Notes
+
+Integrity Statement
+
+"I, Joshua McCormack, did not consult with anyone about the material for this exam except for Kyle. I did not use any resources aside from those listed on the final exam assignment.
+I understand that any breach of this agreement will result in a score of 0 on this exam and also involve administrative penalties."
+
+Refactoring
+The factoring I primarily used was extract function.
+This was primarily used to take all of the code that was sitting
+in the main method (Kyle if there is anything I learned during my
+Computer Science degree, is that this hurts to look at, and kills
+my soul a little,) and extract it into separate methods or functions.
+These could then be called be each other, or by the main method.
+This allows for far more usability, and means that this can be much
+more easily, lets say, made "Better" perhaps? This is by far my favorite
+change, as well as the largest change between my version of RiverDiscoverer,
+and its original form.
