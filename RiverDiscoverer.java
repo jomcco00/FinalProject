@@ -8,6 +8,7 @@ import java.lang.*;
  */
 public class RiverDiscoverer
 {
+//Most Variables establised here
 private Scanner input = new Scanner(System.in);
 private ArrayList<Integer> lengthsBetweenConvergences = new ArrayList<Integer>();
 private ArrayList<String> convergenceNames = new ArrayList<String>();
@@ -16,6 +17,7 @@ private String riverName = "";
 private String tributaryName = "";
 private int spillToSea = 1;
 
+//This runs once at the beginning, establishing that the main river flows into the sea
 public void mainRiverExplorer()
 {
   //get the main river's name
@@ -25,6 +27,7 @@ public void mainRiverExplorer()
   addRiverFlow();
 }
 
+//This adds the l/s of water flowing into the sea, or into the merging river
 public void addRiverFlow()
 {
   if(spillToSea == 1)
@@ -58,6 +61,7 @@ public void addRiverFlow()
   addRiverDistance();
 }
 
+//This adds that amount of distance walked upstream until another confluence is added, or until until one is done exploring the river
 public void addRiverDistance()
 {
   while (true) {
@@ -73,6 +77,7 @@ public void addRiverDistance()
   addConfluence();
 }
 
+//This is used to see if after walking that distance, if the result is a new confluence or end of river
 public void addConfluence()
 {
     System.out.println("Are you done traveling upstream on the " + riverName + "? (y/N)");
@@ -89,6 +94,7 @@ public void addConfluence()
     }
 }
 
+//When done exploring, this displays the output
 public void displayOutput()
 {
   //now print the results
@@ -117,9 +123,10 @@ public void displayOutput()
 
 }
 
-    public static void main(String[] args)
-    {
-      RiverDiscoverer thing = new RiverDiscoverer();
-      thing.mainRiverExplorer();
-    }
+//Main Method simply creates a new RiverDiscoverer, then runs main mainRiverExplorer
+  public static void main(String[] args)
+  {
+    RiverDiscoverer thing = new RiverDiscoverer();
+    thing.mainRiverExplorer();
+  }
 }
